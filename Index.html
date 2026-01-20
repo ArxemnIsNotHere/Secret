@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página protegida</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: #020617;
+      padding: 24px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #2563eb;
+      color: white;
+      font-weight: bold;
+    }
+
+    .error {
+      color: #f87171;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .content {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <div id="login">
+      <h1>Acceso restringido</h1>
+      <p>Ingresá la contraseña para continuar</p>
+
+      <input type="password" id="password" placeholder="Contraseña" />
+      <button onclick="checkPassword()">Entrar</button>
+
+      <div class="error" id="error">Contraseña incorrecta</div>
+    </div>
+
+    <div class="content" id="content">
+      <img src="flor.jpg" style="max-width:100%; border-radius:12px; margin-top:15px;">
+
+      <h1>Bienvenido 👋</h1>
+      <p>Este contenido solo se desbloquea con la contraseña correcta.</p>
+
+      <img src="flor.jpg" style="max-width:100%; border-radius:12px; margin-top:15px;">
+    </div>
+
+  </div>
+
+  <script>
+    const PASSWORD_CORRECTA = "Q7!-mA#-9Z2-L!K-x#5";
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+
+      if (input === PASSWORD_CORRECTA) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
